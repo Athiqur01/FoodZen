@@ -49,7 +49,7 @@ const router = createBrowserRouter([
       {
         path:"myFoodRequest",
         element:<MyFoodRequest></MyFoodRequest>,
-        loader:()=>fetch("http://localhost:5014/myFoodRequest")
+        
 
       },
       {

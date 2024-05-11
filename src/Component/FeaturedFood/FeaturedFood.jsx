@@ -1,11 +1,27 @@
-import { useContext } from "react";
-import { AuthContext } from "../../AuthProvider/AuthProvider";
+
 import { Link } from "react-router-dom";
+import { useQuery } from "@tanstack/react-query";
 
 
 const FeaturedFood = () => {
     
-    const {foods}=useContext(AuthContext)
+    // const {foods}=useContext(AuthContext)
+
+
+    const {isPending, data:foods}=useQuery({
+        queryKey:["myFoodRequest"],
+        queryFn:async()=>{
+            const res=await fetch('http://localhost:5014/food');
+            return res.json();
+        }
+    })
+
+    if(isPending){
+        return <span className="loading loading-spinner text-primary"></span>
+    }
+
+
+
     console.log('foodssssssssssss',foods)
 
     return (

@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { Link, useLoaderData, useParams } from "react-router-dom";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 import axios from "axios";
@@ -6,22 +6,30 @@ import Swal from "sweetalert2";
 
 
 const ViewDetail = () => {
+
+    
     const{user}=useContext(AuthContext)
     const food=useLoaderData()
-    console.log('iddddddd',food)
+    const {foodName,foodImage,foodQuantity,pickupLocation,expireDate,additionalNotes,donatorEmail,donatorImage,donatorName,foodStatus}=food
 
     const currentDate=new Date()
+
+  
 
      
     const handleRequest=()=>{
         
-        console.log('ok---------')
+        const donationAmount=document.getElementById('donation').value
+
+        const foodInfo= {foodName,foodImage,foodQuantity,pickupLocation,expireDate,additionalNotes,donatorEmail,donatorImage,donatorName,foodStatus,currentDate,donationAmount}
+        
+        console.log('ok---------',donationAmount)
 
         // Post operation
-      axios.post('http://localhost:5014/myFoodRequest',food)
+      axios.post('http://localhost:5014/myFoodRequest',foodInfo)
       .then(data=>{
           Swal.fire({
-              position: "top-center",
+              position: "top-right",
               icon: "success",
               title: "Food Item has been added successfully",
               showConfirmButton: true,
@@ -36,7 +44,8 @@ const ViewDetail = () => {
 
     }
       
-      
+
+    
 
    
 
@@ -76,12 +85,24 @@ const ViewDetail = () => {
                    <div className="modal-action">
                   {/* form start --------------------------------------------*/}
                    <div className='flex flex-col justify-center items-center  rounded-lg bg-[#FEF6FF] ' >
+
+                    
             
-            <div className='bg-[#fedcff] rounded-lg px-10 p-6 '>
+                <div className='bg-[#fedcff] rounded-lg px-10 p-6 '>
                 
                 <form   >
                        {/* inpt first row */}
-             <div className=' p-4 flex space-x-8 justify-center'>
+                   <div className="flex justify-end">
+                   <div className=' p-4 flex space-x-8 justify-center'>
+               <label className="form-control w-full max-w-xs ">
+               <input type="submit"  value="close" className="btn max-w-[60px] btn-error" /> 
+               </label>
+              </div>
+
+                   </div>
+                      
+
+             <  div className=' p-4 flex space-x-8 justify-center'>
                <label className="form-control w-full max-w-xs">
                 <div className="label">
                  <span className="label-text text-base font-bold">Food Name</span>
@@ -171,17 +192,28 @@ const ViewDetail = () => {
               </div>
 
               {/* inpt 6th  row */}
-             <div className=' p-4 flex space-x-8 justify-center'>
-               <label className="form-control w-full max-w-xs">
-               <input type="submit"  value="Request" className="btn btn-block bg-[#B7A2D7]" /> 
+
+              <div className=' p-4 flex space-x-8 justify-center'>
+               <label className="form-control w-full max-w-xs flex justify-between">
+                <div className="label">
+                 <span className="label-text text-base font-bold">Donation Amount </span>
+                </div>
+                <input type="text" id="donation"  className="input input-bordered w-full max-w-xs"  />
                </label>
+
+               
+
               </div>
+             
 
 
               {/* last row end */}
 
                 </form>
-                <button onClick={handleRequest}>hello</button>
+                <div className=" flex justify-center">
+                 <button className="px-4 py-2 bg-[#B7A2D7] rounded-md" onClick={handleRequest}>Request</button>
+                </div>
+                
               
 
 

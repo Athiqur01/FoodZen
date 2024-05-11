@@ -20,6 +20,7 @@ import {
 } from '@tanstack/react-query'
 import ViewDetail from './Component/ViewDetail/ViewDetail';
 import MyFoodRequest from './Component/MyFoodRequest/MyFoodRequest';
+import PrivateRoute from './Component/PrivateRoute/PrivateRoute';
 
 
 
@@ -39,7 +40,10 @@ const router = createBrowserRouter([
       },
       {
         path:"/addFood",
-        element:<AddFood></AddFood>
+        element: <PrivateRoute>
+                 <AddFood></AddFood>
+                 </PrivateRoute>
+        
       },
       {
         path:"/viewDetail/:id",
@@ -48,7 +52,9 @@ const router = createBrowserRouter([
       },
       {
         path:"myFoodRequest",
-        element:<MyFoodRequest></MyFoodRequest>,
+        element: <PrivateRoute>
+                 <MyFoodRequest></MyFoodRequest>
+                 </PrivateRoute>,
         
 
       },

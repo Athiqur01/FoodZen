@@ -1,6 +1,6 @@
 import { useContext, useEffect } from "react";
 import { FaGithub, FaGoogle } from "react-icons/fa";
-import { Link, useLoaderData } from "react-router-dom";
+import { Link, useLoaderData, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 import Swal from "sweetalert2";
 import axios from "axios";
@@ -9,8 +9,12 @@ const LogIn = () => {
 
     const loginUserData=useLoaderData()
 
-    const {logInUser,setUser,user,setLoggedUser,setLoading}=useContext(AuthContext)
-console.log('user',user?.email)
+    const {logInUser,setUser,user,setLoggedUser,setLoading,loading}=useContext(AuthContext)
+   console.log('user',user?.email)
+   const navigate=useNavigate
+
+   
+
 
 //fetch user data
  const loginUserInfo=loginUserData.find(data=>data?.email===user?.email)
@@ -79,6 +83,10 @@ console.log('tut tut----',loginUserInfo)
     //         console.log('userinfo',loggedUser)
     //     })
     // },[])
+
+
+    
+        
     
 
 

@@ -1,22 +1,26 @@
 import { useQuery } from "@tanstack/react-query";
+import { useContext, useEffect, useState } from "react";
+import { AuthContext } from "../../AuthProvider/AuthProvider";
+import axios from "axios";
 
 
 const MyFoodRequest = () => {
 
+    const {user}=useContext(AuthContext)
+    
+
+    console.log('emaillllllll',user.email)
+
     const {isPending, data:foods}=useQuery({
         queryKey:["myFoodRequest"],
         queryFn:async()=>{
-            const res=await fetch('http://localhost:5014/myFoodRequest');
+            const res=await fetch(`http://localhost:5014/myFoodRequest/${user.email}`);
             return res.json();
         }
     })
 
-    console.log('data--------',foods)
 
-    // const foods=useLoaderData()
-    if(isPending){
-        return <span className="loading loading-spinner text-primary"></span>
-    }
+    if(isPending) return <span className="loading loading-spinner text-primary"></span>
 
     return (
         <div>

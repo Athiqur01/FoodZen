@@ -13,6 +13,7 @@ const ViewDetail = () => {
     const {foodName,foodImage,foodQuantity,pickupLocation,expireDate,additionalNotes,donatorEmail,donatorImage,donatorName,foodStatus}=food
 
     const currentDate=new Date()
+    const userEmail=user?.email
 
   
 
@@ -21,7 +22,7 @@ const ViewDetail = () => {
         
         const donationAmount=document.getElementById('donation').value
 
-        const foodInfo= {foodName,foodImage,foodQuantity,pickupLocation,expireDate,additionalNotes,donatorEmail,donatorImage,donatorName,foodStatus,currentDate,donationAmount}
+        const foodInfo= {foodName,foodImage,foodQuantity,pickupLocation,expireDate,additionalNotes,donatorEmail,donatorImage,donatorName,foodStatus,currentDate,donationAmount,userEmail}
         
         console.log('ok---------',donationAmount)
 

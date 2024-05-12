@@ -1,12 +1,14 @@
 import { useContext, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 import axios from "axios";
+import Swal from "sweetalert2";
 
 
 const SignUp = () => {
     
     const {createUser,user,setLoggedUser,setLoading,setUser,logOut}=useContext(AuthContext)
+    const navigate=useNavigate()
 
     console.log(createUser)
 
@@ -21,6 +23,15 @@ const SignUp = () => {
 
         createUser(email,password)
         .then(result=>{
+            if(result.user){
+                Swal.fire({
+                    position: "top-center",
+                    icon: "success",
+                    title: "Signup successful",
+                    showConfirmButton: true,
+                    timer: 7500
+                  });
+            }
             console.log(result.user)
         })
         .catch(error=>{
@@ -37,6 +48,8 @@ const SignUp = () => {
          .catch(error=>{
              console.error(error.message)
          })
+
+         navigate('/login')
 
          
          

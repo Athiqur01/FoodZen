@@ -93,12 +93,12 @@ console.log('tut tut----',loginUserInfo)
     return (
         <div >
             <div className="flex flex-col justify-center items-center   p-6 md:p-10 lg:p-16 bg-[#FEF6FF] rounded-md ">
-                <h1 className="pb-8 text-3xl font-bold opacity-80">Register Now</h1>
+                <h1 className="pb-8 text-3xl font-bold opacity-80">Login Now</h1>
                 <form onSubmit={handleLogIn}  className="flex flex-col space-y-6 bg-[#FEF6FF] p-4 md:p-8 lg:p-10 rounded-md w-full md:w-[550px] lg:w-[600px]" >
                 <input type="email" name="email" placeholder="Email" className="input input-bordered w-full " />
                     <input type="password" name="password" placeholder="password" className="input input-bordered w-full " />
                     <input type="submit" value="LogIn"  className="btn btn-block bg-[#B7A2D7]" />
-                    <p className="text-center">Not registered? <Link to="/register"><span className="text-[#8255EF] font-bold"> Sign up</span></Link></p>
+                    <p className="text-center">Not registered? <Link to="/signUp"><span className="text-[#8255EF] font-bold"> Sign up</span></Link></p>
                     <p className="text-center">Or</p>
                     <div className="flex justify-center">
                         <button  className="pr-4 text-2xl"><FaGoogle /></button>

@@ -58,6 +58,13 @@ const AvailableFoods = () => {
         console.log('ordered',orderedList)
     }
 
+    const handleLayout=()=>{
+
+        const layoutChange=document.getElementById('layout');
+        layoutChange.classList.remove('lg:grid-cols-3');
+        layoutChange.classList.add('lg:grid-cols-2')
+    }
+
 
 
 
@@ -66,6 +73,9 @@ const AvailableFoods = () => {
 
             {/* Search Button */}
             <div className="mt-6 flex justify-end">
+                <div>
+                    <button onClick={handleLayout} className="px-5 py-3 text- bg-[#8255EF] rounded-md mr-4 text-bold text-white">Change layout</button>
+                </div>
             <div className="join">
             <input id="search" type="text" name="searched" className="input input-bordered join-item" placeholder="Search Food"/>
             <button onClick={handleSearch} className="btn join-item rounded-r-full bg-[#B7A2D7]">Search</button>
@@ -91,7 +101,7 @@ const AvailableFoods = () => {
 {/* sort according to date end */}
 
 
-              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 my-16">
+              <div id="layout" className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 my-16">
             {foods?.map(food=><>
 
 

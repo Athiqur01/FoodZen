@@ -34,7 +34,7 @@ const ViewDetail = () => {
               icon: "success",
               title: "Food Item has been added successfully",
               showConfirmButton: true,
-              timer: 7500
+              timer: 1500
             });
           console.log(data.data)})
       .catch(error=>{

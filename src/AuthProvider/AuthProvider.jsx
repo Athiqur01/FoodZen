@@ -10,6 +10,7 @@ const AuthProvider = ({children}) => {
     const [loading, setLoading]=useState(true)
     const [loggedUser, setLoggedUser]=useState(null)
     const [foods,setFoods]=useState(null)
+    const [userLocalStorage,setUserLocalStorage]=useState(null)
     
 
     console.log('logged user',loggedUser)

@@ -18,7 +18,7 @@ const ViewDetail = () => {
   
 
      
-    const handleRequest=()=>{
+    const handleRequest=(id)=>{
         
         const donationAmount=document.getElementById('donation').value
 
@@ -40,6 +40,20 @@ const ViewDetail = () => {
       .catch(error=>{
           console.error(error.message)
       })
+
+
+      //delete operation
+      
+
+        console.log(id)
+
+       axios.delete(`http://localhost:5014/food/${id}`)
+      .then(res=>{
+        console.log('dataaa',res.data)
+      })
+            
+    
+
 
 
 
@@ -212,7 +226,7 @@ const ViewDetail = () => {
 
                 </form>
                 <div className=" flex justify-center">
-                 <button className="px-4 py-2 bg-[#B7A2D7] rounded-md" onClick={handleRequest}>Request</button>
+                 <button className="px-4 py-2 bg-[#B7A2D7] rounded-md" onClick={()=>handleRequest(food._id)}>Request</button>
                 </div>
                 
               

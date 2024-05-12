@@ -28,7 +28,7 @@ const AddFood = () => {
         const food={foodName,foodImage,foodQuantity,pickupLocation,expireDate,additionalNotes,donatorEmail,donatorImage,donatorName,foodStatus}
 
         // Post operation
-        axios.post('http://localhost:5014/food',food)
+        axios.post('http://localhost:5014/food',food,{withCredentials:true})
         .then(data=>{
             Swal.fire({
                 position: "top-center",

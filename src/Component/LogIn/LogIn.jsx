@@ -9,7 +9,7 @@ const LogIn = () => {
 
     const loginUserData=useLoaderData()
 
-    const {logInUser,setUser,user,setLoggedUser,setLoading,loading}=useContext(AuthContext)
+    const {logInUser,setUser,user,setLoggedUser,setLoading,loading,}=useContext(AuthContext)
    console.log('user',user?.email)
    const navigate=useNavigate
 
@@ -45,6 +45,13 @@ console.log('tut tut----',loginUserInfo)
             console.log(result.user)
             if(result.user){
                 setUser(result.user)
+            //jwt -----------------
+            axios.post('http://localhost:5014/jwt',{email:result?.user?.email},{withCredentials:true})
+            .then(res=>{
+                console.log('dataaaaaaaaaaaaaaaaaa',res.data)
+            })
+
+
 
                 Swal.fire({
                     position: "top-center",

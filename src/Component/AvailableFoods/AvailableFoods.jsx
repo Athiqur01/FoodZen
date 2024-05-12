@@ -26,7 +26,7 @@ const AvailableFoods = () => {
     // console.log(foods)
 
     useEffect(()=>{
-        axios.get('http://localhost:5014/food')
+        axios.get('http://localhost:5014/food',{withCredentials:true})
         .then(data=>{
             setFoods(data.data)
             console.log(data.data)

@@ -8,7 +8,7 @@ const FeaturedFood = () => {
     // const {foods}=useContext(AuthContext)
 
 
-    const {isPending, data:foods}=useQuery({
+    const {isPending, data:allFoods}=useQuery({
         queryKey:["myFoodRequest"],
         queryFn:async()=>{
             const res=await fetch('http://localhost:5014/food');
@@ -19,16 +19,20 @@ const FeaturedFood = () => {
     if(isPending){
         return <span className="loading loading-spinner text-primary"></span>
     }
+    
+    const sortedFoods=allFoods.sort((a,b)=>b.foodQuantity-a.foodQuantity)
+    const foods=sortedFoods.slice(0,6)
+    console.log('foooooooo',foods)
+    
 
 
-
-    console.log('foodssssssssssss',foods)
+    
 
     return (
         <div>
             <h2 className="text-6xl font-bold text-center text-[#B7A2D7] mt-6">Featured Foods</h2>
              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 my-16">
-            {foods?.map(food=><>
+            {foods?.map((food)=><>
 
 
                 <div className="card  bg-base-100 shadow-xl text-justify opacity-85">

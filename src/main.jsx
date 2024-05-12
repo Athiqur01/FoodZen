@@ -21,6 +21,8 @@ import {
 import ViewDetail from './Component/ViewDetail/ViewDetail';
 import MyFoodRequest from './Component/MyFoodRequest/MyFoodRequest';
 import PrivateRoute from './Component/PrivateRoute/PrivateRoute';
+import ManageMyFood from './Component/ManageMyFood/ManageMyFood';
+import Update from './Component/Update/Update';
 
 
 
@@ -57,6 +59,17 @@ const router = createBrowserRouter([
                  </PrivateRoute>,
         
 
+      },
+      {
+        path:"/manageMyFood",
+        element:<PrivateRoute>
+        <ManageMyFood></ManageMyFood>
+        </PrivateRoute>,
+        
+      },
+      {
+        path:"/update",
+        element:<Update></Update>
       },
       {
         path:"/logIn",

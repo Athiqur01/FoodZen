@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 import axios from "axios";
 import Swal from "sweetalert2";
+import { useQuery } from "@tanstack/react-query";
 
 
 const AddFood = () => {
@@ -50,6 +51,20 @@ const AddFood = () => {
     const userName=info.name
     const userPhoto=info.photo
     console.log('put put---',userName,userPhoto)
+
+    //fetch user------
+    const {isPending, data:specficUser}=useQuery({
+        queryKey:["specficUser"],
+        queryFn:async()=>{
+            const res=await fetch(`http://localhost:5014/user/${user.email},`,{credentials:"include"});
+            return res.json();
+        }
+    })
+
+    console.log('specfic user',specficUser)
+
+
+
 
 
 
@@ -126,7 +141,7 @@ const AddFood = () => {
                 <div className="label">
                  <span className="label-text text-base font-bold">Donator Name </span>
                 </div>
-                <input type="text" value={userName} name='donatorName' placeholder="Donator Name " className="input input-bordered w-full max-w-2xl" />
+                <input type="text" value={specficUser?.name} name='donatorName'  placeholder="Donator Name " className="input input-bordered w-full max-w-2xl"disabled/>
                </label>
 
               </div>
@@ -137,7 +152,7 @@ const AddFood = () => {
                 <div className="label">
                  <span className="label-text text-base font-bold">Donator Email </span>
                 </div>
-                <input type="text" name='donatorEmail' placeholder="Donator Email " value={user?.email} className="input input-bordered w-full max-w-xs" />
+                <input type="text" name='donatorEmail' placeholder="Donator Email " value={user?.email} className="input input-bordered w-full max-w-xs" disabled/>
                </label>
 
                <label className="form-control w-full max-w-xs">

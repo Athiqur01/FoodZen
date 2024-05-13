@@ -3,6 +3,7 @@ import { AuthContext } from "../../AuthProvider/AuthProvider";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import { useQuery } from "@tanstack/react-query";
+import Swal from "sweetalert2";
 
 
 const Update = () => {
@@ -45,23 +46,23 @@ if(isLoading) return<p>loading--------</p>
         
         console.log(foodName,foodImage,foodQuantity,pickupLocation,expireDate,additionalNotes,donatorEmail,donatorImage,donatorName,foodStatus)
 
-        const food={foodName,foodImage,foodQuantity,pickupLocation,expireDate,additionalNotes,donatorEmail,donatorImage,donatorName,foodStatus}
+        const food={foodName,foodImage,foodQuantity,pickupLocation,expireDate,additionalNotes,donatorImage,donatorName,foodStatus}
 
 
-        // Post operation
-        // axios.post('http://localhost:5014/food',food,{withCredentials:true})
-        // .then(data=>{
-        //     Swal.fire({
-        //         position: "top-center",
-        //         icon: "success",
-        //         title: "Food Item has been added successfully",
-        //         showConfirmButton: true,
-        //         timer: 7500
-        //       });
-        //     console.log(data.data)})
-        // .catch(error=>{
-        //     console.error(error.message)
-        // })
+       // Patch operation
+        axios.patch(`http://localhost:5014/food/${id}`,food,{withCredentials:true})
+        .then(data=>{
+            Swal.fire({
+                position: "top-center",
+                icon: "success",
+                title: "Food Item has been updated successfully",
+                showConfirmButton: true,
+                timer: 7500
+              });
+            console.log(data.data)})
+        .catch(error=>{
+            console.error(error.message)
+        })
         
         
     }
@@ -83,14 +84,14 @@ if(isLoading) return<p>loading--------</p>
                 <div className="label">
                  <span className="label-text text-base font-bold">Food Name</span>
                 </div>
-                <input type="text" name='foodName' placeholder="Food Name" className="input input-bordered w-full max-w-xs" />
+                <input type="text" name='foodName'defaultValue={food.foodName} placeholder="Food Name" className="input input-bordered w-full max-w-xs" />
                </label>
 
                <label className="form-control w-full max-w-xs">
                 <div className="label">
                  <span className="label-text text-base font-bold">Food Image</span>
                 </div>
-                <input type="text" name='foodImage' placeholder="Food Image URL" className="input input-bordered w-full max-w-xs" />
+                <input type="text" name='foodImage' defaultValue={food.foodImage} placeholder="Food Image URL" className="input input-bordered w-full max-w-xs" />
                </label>
 
               </div>
@@ -101,7 +102,7 @@ if(isLoading) return<p>loading--------</p>
                  <span className="label-text text-base font-bold">Food Quantity</span>
                 </div>
 
-                <input type="text" name='foodQuantity' placeholder="Food Quantity" className="input input-bordered w-full max-w-2xl" />
+                <input type="text" name='foodQuantity'defaultValue={food.foodQuantity} placeholder="Food Quantity" className="input input-bordered w-full max-w-2xl" />
                 
                </label>
 
@@ -109,7 +110,7 @@ if(isLoading) return<p>loading--------</p>
                 <div className="label">
                  <span className="label-text text-base font-bold">Pickup Location</span>
                 </div>
-                <input type="text" name='pickupLocation' placeholder="Pickup Location" className="input input-bordered w-full max-w-2xl" />
+                <input type="text" name='pickupLocation' defaultValue={food.pickupLocation} placeholder="Pickup Location" className="input input-bordered w-full max-w-2xl" />
                </label>
 
               </div>
@@ -119,35 +120,35 @@ if(isLoading) return<p>loading--------</p>
                 <div className="label">
                  <span className="label-text text-base font-bold">Expire Date</span>
                 </div>
-                <input type="date" name='expireDate' placeholder="Expire Date" className="input input-bordered w-full max-w-xs" />
+                <input type="date" name='expireDate' defaultValue={food.expireDate} placeholder="Expire Date" className="input input-bordered w-full max-w-xs" />
                </label>
 
                <label className="form-control w-full max-w-xs">
                 <div className="label">
                  <span className="label-text text-base font-bold">Additional Notes</span>
                 </div>
-                <input type="text" name='additionalNotes' placeholder="Additional Notes" className="input input-bordered w-full max-w-2xl" />
+                <input type="text" name='additionalNotes' defaultValue={food.additionalNotes} placeholder="Additional Notes" className="input input-bordered w-full max-w-2xl" />
                </label>
 
               </div>
 
               {/* inpt 4rth  row */}
-             {/* <div className=' p-4 flex space-x-8 justify-center'>
+             <div className=' p-4 flex space-x-8 justify-center'>
                <label className="form-control w-full max-w-xs">
                 <div className="label">
                  <span className="label-text text-base font-bold">Donator Image</span>
                 </div>
-                <input type="text" value={userPhoto} name='donatorImage' placeholder="Donator Image" className="input input-bordered w-full max-w-2xl" />
+                <input type="text" value={food.userPhoto} name='donatorImage' placeholder="Donator Image" className="input input-bordered w-full max-w-2xl" />
                </label>
 
                <label className="form-control w-full max-w-xs">
                 <div className="label">
                  <span className="label-text text-base font-bold">Donator Name </span>
                 </div>
-                <input type="text" value={userName} name='donatorName' placeholder="Donator Name " className="input input-bordered w-full max-w-2xl" />
+                <input type="text" value={food.userName} name='donatorName' placeholder="Donator Name " className="input input-bordered w-full max-w-2xl" />
                </label>
 
-              </div> */}
+              </div>
 
               {/* inpt 5th  row */}
              <div className=' p-4 flex space-x-8 justify-center'>
@@ -155,7 +156,7 @@ if(isLoading) return<p>loading--------</p>
                 <div className="label">
                  <span className="label-text text-base font-bold">Donator Email </span>
                 </div>
-                <input type="text" name='donatorEmail' placeholder="Donator Email " value={user?.email} className="input input-bordered w-full max-w-xs" />
+                <input type="text" name='donatorEmail' placeholder="Donator Email " value={user?.email} className="input input-bordered w-full max-w-xs" disabled />
                </label>
 
                <label className="form-control w-full max-w-xs">

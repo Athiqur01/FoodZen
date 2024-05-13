@@ -31,7 +31,7 @@ const AvailableFoods = () => {
             setFoods(data.data)
             console.log(data.data)
         })
-    },[])
+    },[setFoods])
 
 //search handler------------------------------
     const handleSearch=()=>{

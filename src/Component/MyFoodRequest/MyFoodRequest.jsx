@@ -14,7 +14,7 @@ const MyFoodRequest = () => {
     const {isPending, data:foods}=useQuery({
         queryKey:["myFoodRequest"],
         queryFn:async()=>{
-            const res=await fetch(`http://localhost:5014/myFoodRequest/${user.email}`);
+            const res=await fetch(`http://localhost:5014/myFoodRequest/${user.email}`,{withCredentials:true});
             return res.json();
         }
     })

@@ -6,12 +6,12 @@ import { getAuth } from "firebase/auth";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey:import.meta.env.FIREBASE_apiKey,
-  authDomain:import.meta.env.FIREBASE_authDomain,
-  projectId:import.meta.env.FIREBASE_projectId,
-  storageBucket:import.meta.env.FIREBASE_storageBucket,
-  messagingSenderId:import.meta.env.FIREBASE_messagingSenderId,
-  appId:import.meta.env.FIREBASE_appId,
+  apiKey: "AIzaSyCFwz6E0vTBcpH-Frma4RDfwF0N_t9X3vE",
+  authDomain: "codezenallfood.firebaseapp.com",
+  projectId: "codezenallfood",
+  storageBucket: "codezenallfood.appspot.com",
+  messagingSenderId: "425906547515",
+  appId: "1:425906547515:web:faae97e2362671bb45651e"
 };
 
 // Initialize Firebase

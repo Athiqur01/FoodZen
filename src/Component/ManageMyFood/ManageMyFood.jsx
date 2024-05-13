@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import { useContext, useEffect } from "react";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import axios from "axios";
 
@@ -9,6 +9,7 @@ import axios from "axios";
 const ManageMyFood = () => {
 
     const {user}=useContext(AuthContext)
+    const navigate=useNavigate()
 
     
 
@@ -28,11 +29,17 @@ const ManageMyFood = () => {
 
         console.log(id)
 
-       axios.delete(`http://localhost:5014/food/${id}`)
+       axios.delete(`http://localhost:5014/food/${id}`,{withCredentials:true})
       .then(res=>{
         console.log('dataaa',res.data)
       })
             
+    }
+    //update request--------
+    const handleUpdate=(id)=>{
+        console.log(id)
+
+        navigate(`/update/${id}`)
     }
 
 
@@ -64,7 +71,7 @@ const ManageMyFood = () => {
         <td><img className="max-w-32 rounded-md" src={food.foodImage} alt="" /> </td>
         <td>{food.foodName}</td>
         <td><button onClick={()=>handleDelete(food._id)} className="btn btn-error">Delete</button></td>
-        <td><Link to="/update"><button className="btn btn-info">Update</button></Link></td>
+        <td><button onClick={()=>handleUpdate(food._id)} className="btn btn-info">Update</button></td>
       </tr>
       
 

@@ -1,13 +1,18 @@
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import { FaGithub, FaGoogle } from "react-icons/fa";
 import { Link, useLoaderData, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 import Swal from "sweetalert2";
 import axios from "axios";
+import { useQuery } from "@tanstack/react-query";
+
+let i=0
+console.log('primary',i)
 
 const LogIn = () => {
 
     const loginUserData=useLoaderData()
+    // const [UserToDatabase,setUserToDatabase]=useState(null)
 
     const {logInUser,setUser,user,setLoggedUser,setLoading,loading,createGoogleUser}=useContext(AuthContext)
    console.log('user',user?.email)
@@ -91,16 +96,77 @@ console.log('tut tut----',loginUserInfo)
     //     })
     // },[])
 
+
+
+
+
+
+
+//google user handle
   const handleGoogleSignIn=()=>{
 
     createGoogleUser()
     .then(result=>{
-        console.log(result.user)
+        console.log('google user',result.user)
         setUser(result.user)
     })
   }
     
+      console.log('google user from use stste',user)  
+
+      // user data fatch from data base
+// const {isError,error,data:userToMatch}=useQuery({
+//     queryKey:['userToMatch'],
+//     queryFn:async()=>{
         
+//         const res=await fetch(`http://localhost:5014/user/${user?.email}`,{credentials:'include'});
+//         setLoading(true)
+//         //setUserToDatabase(userToMatch)
+//         return res.json();
+//     }
+// })
+
+const googleUserInfo={
+     email:user?.email,
+     name:user?.displayName,
+     photo:user?.photoURL
+
+     }
+
+     
+axios.get(`http://localhost:5014/user/${user?.email}`)
+.then(res=>{
+    console.log('jjjjjjjjjj',res.data)
+    if(res.data){
+        console.log('super')
+    }
+    if(!res.data && user){
+        i++;
+        if(i<2){
+            console.log('primary2',i)
+            setLoading(true)
+        console.log('okkkkkk')
+        axios.post('http://localhost:5014/user',googleUserInfo,{withCredentials:true})
+        .then(res=>{
+            console.log(res.data)
+        })
+
+
+        }
+        
+    }
+})
+
+
+//console.log(isError,error, userToMatch, )
+console.log('ussssssssr',user)
+
+// if(userToMatch==undefined){
+//     console.log('ok')
+    
+// }
+
+
     
 
 

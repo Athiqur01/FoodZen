@@ -23,12 +23,14 @@ import MyFoodRequest from './Component/MyFoodRequest/MyFoodRequest';
 import PrivateRoute from './Component/PrivateRoute/PrivateRoute';
 import ManageMyFood from './Component/ManageMyFood/ManageMyFood';
 import Update from './Component/Update/Update';
+import Error from './Error/Error';
 
 
 
 const router = createBrowserRouter([
   {
     path: "/",
+    errorElement:<Error></Error>,
     element: <Root></Root>,
     children:[
 

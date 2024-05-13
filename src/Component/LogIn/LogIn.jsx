@@ -9,7 +9,7 @@ const LogIn = () => {
 
     const loginUserData=useLoaderData()
 
-    const {logInUser,setUser,user,setLoggedUser,setLoading,loading,}=useContext(AuthContext)
+    const {logInUser,setUser,user,setLoggedUser,setLoading,loading,createGoogleUser}=useContext(AuthContext)
    console.log('user',user?.email)
    const navigate=useNavigate
 
@@ -91,7 +91,14 @@ console.log('tut tut----',loginUserInfo)
     //     })
     // },[])
 
+  const handleGoogleSignIn=()=>{
 
+    createGoogleUser()
+    .then(result=>{
+        console.log(result.user)
+        setUser(result.user)
+    })
+  }
     
         
     
@@ -108,7 +115,7 @@ console.log('tut tut----',loginUserInfo)
                     <p className="text-center">Not registered? <Link to="/signUp"><span className="text-[#8255EF] font-bold"> Sign up</span></Link></p>
                     <p className="text-center">Or</p>
                     <div className="flex justify-center">
-                        <button  className="pr-4 text-2xl"><FaGoogle /></button>
+                        <button onClick={handleGoogleSignIn}  className="pr-4 text-2xl"><FaGoogle /></button>
                         <button className="pl-4 text-2xl"><FaGithub /></button>
                     
                     </div>

@@ -5,6 +5,7 @@ import { AuthContext } from "../../AuthProvider/AuthProvider";
 import Swal from "sweetalert2";
 import axios from "axios";
 import { useQuery } from "@tanstack/react-query";
+import { Helmet } from "react-helmet";
 
 let i=0
 console.log('primary',i)
@@ -172,6 +173,7 @@ console.log('ussssssssr',user)
 
     return (
         <div >
+            <Helmet><title>CodeZen | Login</title></Helmet>
             <div className="flex flex-col justify-center items-center   p-6 md:p-10 lg:p-16 bg-[#FEF6FF] rounded-md ">
                 <h1 className="pb-8 text-3xl font-bold opacity-80">Login Now</h1>
                 <form onSubmit={handleLogIn}  className="flex flex-col space-y-6 bg-[#FEF6FF] p-4 md:p-8 lg:p-10 rounded-md w-full md:w-[550px] lg:w-[600px]" >

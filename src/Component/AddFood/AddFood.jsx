@@ -3,6 +3,7 @@ import { AuthContext } from "../../AuthProvider/AuthProvider";
 import axios from "axios";
 import Swal from "sweetalert2";
 import { useQuery } from "@tanstack/react-query";
+import { Helmet } from "react-helmet";
 
 
 const AddFood = () => {
@@ -70,6 +71,7 @@ const AddFood = () => {
 
     return (
         <div className='flex flex-col justify-center items-center  rounded-lg bg-[#FEF6FF] p-20' >
+            <Helmet><title>CodeZen | Add Food</title></Helmet>
             <h2 className="text-6xl font-bold text-[#B7A2D7]">Add Food Item</h2>
             <div className='bg-[#fedcff] rounded-lg px-10 py-6 mt-12'>
                 

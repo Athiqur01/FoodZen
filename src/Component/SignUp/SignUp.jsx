@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 import axios from "axios";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet";
 
 
 const SignUp = () => {
@@ -63,6 +64,7 @@ const SignUp = () => {
     
     return (
         <div >
+            <Helmet><title>CodeZen | Signup</title></Helmet>
             <div className="flex flex-col justify-center items-center   p-6 md:p-10 lg:p-16 bg-[#FEF6FF] rounded-md ">
                 <h1 className="pb-8 text-3xl font-bold opacity-80">Sign up Now</h1>
                 <form onSubmit={handleSignUp} className="flex flex-col space-y-6 bg-[#FEF6FF] p-4 md:p-8 lg:p-10 rounded-md w-full md:w-[550px] lg:w-[600px]" >

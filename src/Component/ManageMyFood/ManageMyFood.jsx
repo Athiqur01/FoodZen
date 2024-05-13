@@ -4,6 +4,7 @@ import { AuthContext } from "../../AuthProvider/AuthProvider";
 import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import axios from "axios";
+import { Helmet } from "react-helmet";
 
 
 const ManageMyFood = () => {
@@ -48,6 +49,7 @@ const ManageMyFood = () => {
 
     return (
         <div className=" ">
+            <Helmet><title>CodeZen | Manage my Food</title></Helmet>
                 <div className=" mx-auto overflow-x-auto max-w-[1000px] py-6 lg:py-12 ">
   <table className="table">
     {/* head */}

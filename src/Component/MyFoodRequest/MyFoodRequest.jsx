@@ -2,6 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 import axios from "axios";
+import { Helmet } from "react-helmet";
 
 
 const MyFoodRequest = () => {
@@ -24,6 +25,7 @@ const MyFoodRequest = () => {
 
     return (
         <div>
+            <Helmet><title>CodeZen | My  Food Request</title></Helmet>
             <div>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 my-16">
             {foods?.map(food=><>

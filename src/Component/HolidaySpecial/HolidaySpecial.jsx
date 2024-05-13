@@ -1,45 +1,40 @@
-
-import { Link } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
-import { Helmet } from "react-helmet";
+import { useContext } from "react";
+import { AuthContext } from "../../AuthProvider/AuthProvider";
+import { Link } from "react-router-dom";
 
 
-const FeaturedFood = () => {
-    
-    // const {foods}=useContext(AuthContext)
+const HolidaySpecial = () => {
 
+    const {user}=useContext(AuthContext)
 
-    const {isPending, data:allFoods}=useQuery({
-        queryKey:["myFoodRequest"],
+    const {data:foods}=useQuery({
+        queryKey:['holidaySpecial'],
         queryFn:async()=>{
-            const res=await fetch('http://localhost:5014/food');
+            const res=await fetch(`http://localhost:5014/foods/${user?.email}`,{credentials:'include'});
             return res.json();
         }
     })
 
-    if(isPending){
-        return <span className="loading loading-spinner text-primary"></span>
-    }
-    
-    const sortedFoods=allFoods.sort((a,b)=>b.foodQuantity-a.foodQuantity)
-    const foods=sortedFoods.slice(0,6)
-    console.log('foooooooo',foods)
-    
-
-
-    
+    console.log('fffod',foods)
 
     return (
         <div>
-            
-            <h2 className="text-2xl md:text-4xl lg:text-6xl font-bold text-center text-[#B7A2D7] mt-6">Featured Foods</h2>
-             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 my-16">
-               
+            <hr />
+            <h2 className="text-6xl font-bold text-center mb-10 mt-10 text-[#B7A2D7]">Holiday Specials</h2>
+            <div>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 my-16">
             {foods?.map((food)=><>
 
 
-                <div className="card w-full bg-base-100 shadow-xl text-justify opacity-85">
-                <figure><img className="max-h-[500px] w-full" src={food.foodImage} alt="Shoes" /></figure>
+                <div className="card  bg-base-100 shadow-xl text-justify opacity-85 relative">
+                <figure className=" ">
+                    <div>
+                    <div className="px-[250px] py-[150px] " style={{ backgroundImage: `url(${food.foodImage})` }}> 
+                        <p className="w-28 h-28  rounded-full  border-2  text-center flex justify-center items-center absolute right-6 top-4 bg-[#F9F871] ">Holiday <br />Special</p>
+                    </div>
+                    </div>
+                </figure>
                 <div className="card-body">
                  <h2 className="card-title">{food.foodName}</h2>
                  <div className="flex gap-4">
@@ -64,16 +59,9 @@ const FeaturedFood = () => {
             </>)}
             
         </div>
-
-        {/* Show all button that derected to availableFood page */}
-
-        <div className="flex justify-center">
-            <Link to="/availableFoods"><button className="py-2 px-4 rounded-md mb-20 bg-[#B7A2D7]">Show all</button></Link>
-            
-        </div>
-            
+            </div>
         </div>
     );
 };
 
-export default FeaturedFood;
+export default HolidaySpecial;

@@ -5,6 +5,7 @@ import { useContext, useEffect } from "react";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 import { motion } from "framer-motion"
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet";
 
 const AvailableFoods = () => {
 
@@ -70,6 +71,7 @@ const AvailableFoods = () => {
 
     return (
         <div>
+            <Helmet><title>CodeZen | Available Food</title></Helmet>
 
             {/* Search Button */}
             <div className="mt-6 flex justify-end">

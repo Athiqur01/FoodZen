@@ -31,10 +31,12 @@ const Navbar = () => {
       </ul>
     </div>
     <div>
+        <Link to="/">
         <div className="space-y-1 font-bold">
             <img className="w-20 rounded-md" src={logo} alt="" />
-            <h2>CodeZen | All Food</h2>
+            <h2 className="text-lg">CodeZen</h2>
         </div>
+        </Link>
 
     </div>
     

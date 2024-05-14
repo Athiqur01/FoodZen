@@ -9,16 +9,16 @@ const Footer = () => {
   <nav className="text-white mx-auto text-black">
     <div className="flex flex-col space-y-4">
         <img className="max-w-20 rounded-md" src={logo} alt="" />
-        <h6 className="footer-title text-white">CodeZen | All Foods</h6> 
+        <h6 className="footer-title text-white">FoodZen </h6> 
     </div>
     
-    <p className="text-left text-white">Explore the mystique of the <br /> CodeZen | All Foods at our gallery, where <br />every detail invites fascination <br /> and interpretation.</p>
+    <p className="text-left text-white">Explore the mystique of the <br /> CodeZen | All Foods at our gallery, where <br />every detail invites fascinations <br /> and interpretation.</p>
     
   </nav> 
   <nav className="text-white mx-auto">
     <h6 className="footer-title text-white">Contact</h6> 
     <p className="text-left text-white">700 WE 15th Int Miami, FLR B379 <br />Call us FREE<a className="link link-hover text-left" href="">+1 (800) 990 6688</a>  <br />
-<a className="link link-hover" >codezenallfoods@gmail.com</a>
+<a className="link link-hover" >foodzenallfoods@gmail.com</a>
 </p>
   </nav> 
   <nav className="text-white mx-auto ">

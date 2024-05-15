@@ -71,7 +71,7 @@ const AddFood = () => {
 
     return (
         <div className='flex flex-col justify-center items-center  rounded-lg bg-[#FEF6FF] p-20' >
-            <Helmet><title>CodeZen | Add Food</title></Helmet>
+            <Helmet><title>CodeZen | Add Food </title></Helmet>
             <h2 className="text-6xl font-bold text-[#B7A2D7]">Add Food Item</h2>
             <div className='bg-[#fedcff] rounded-lg px-10 py-6 mt-12'>
                 

@@ -1,5 +1,5 @@
 import { FaFacebook, FaLinkedin, FaTwitter } from "react-icons/fa";
-import logo from "../../assets/codezen2.png"
+import logo from "../../assets/codezen.png"
 
 
 const Footer = () => {
@@ -12,7 +12,7 @@ const Footer = () => {
         <h6 className="footer-title text-white">FoodZen </h6> 
     </div>
     
-    <p className="text-left text-white">Explore the mystique of the <br /> CodeZen | All Foods at our gallery, where <br />every detail invites fascinations <br /> and interpretation.</p>
+    <p className="text-left text-white">Explore the mystique of the <br /> FoodZen | All Foods at our point, where <br />every detail invites fascinations <br /> and interpretation.</p>
     
   </nav> 
   <nav className="text-white mx-auto">

@@ -1,5 +1,5 @@
 import { Link, NavLink } from "react-router-dom";
-import logo from "../../assets/codezen2.png"
+import logo from "../../assets/codezen.png"
 import { useContext } from "react";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 
@@ -16,6 +16,10 @@ const Navbar = () => {
                      <li><NavLink to="/myFoodRequest">My Food Request</NavLink></li>
     
                   </>
+        
+    const loggedUser=localStorage.getItem("loginUserinfo")
+    console.log(JSON.parse(loggedUser).photo)
+    
 
 
     return (
@@ -48,7 +52,7 @@ const Navbar = () => {
   </div>
   <div className="navbar-end">
 
-   {user? <><p>{user?.email}</p><button onClick={logOut} className="pl-2">Log Out</button></>:<> <div className="flex gap-4">
+   {user? <><img className="w-12 w-12 rounded-full" src={user?.photoURL ||JSON.parse(loggedUser).photo} alt="" /><button onClick={logOut} className="pl-2">Log Out</button></>:<> <div className="flex gap-4">
         
         <Link to="/login"><button>LogIn</button></Link>
         <Link to="/signUp"><button>Sign Up</button></Link>

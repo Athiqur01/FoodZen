@@ -1,16 +1,22 @@
 import { useQueries } from "@tanstack/react-query";
 import { data } from "autoprefixer";
 import axios from "axios";
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 import { motion } from "framer-motion"
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
 
+
+
+
 const AvailableFoods = () => {
+
+    
 
     const {foods,setFoods}=useContext(AuthContext)
     console.log('foods',foods)
+    const [expire,setExpire]=useState(null)
 
 
     // const {isPending,isError, error, data:foods}=useQueries({
@@ -56,8 +62,19 @@ const AvailableFoods = () => {
         const orderedList=foods.slice().sort((a,b)=>Date.parse(b.expireDate)-Date.parse(a.expireDate))
         setFoods(orderedList)
 
+        
         console.log('ordered',orderedList)
     }
+//setFoods(lowExpire)
+    const handleLowExpire=()=>{
+        const orderedList=foods.slice().sort((a,b)=>Date.parse(a.expireDate)-Date.parse(b.expireDate))
+        setFoods(orderedList)  
+
+    }
+
+
+
+
 
     const handleLayout=()=>{
 
@@ -74,7 +91,9 @@ const AvailableFoods = () => {
             <Helmet><title>CodeZen | Available Food</title></Helmet>
 
             {/* Search Button */}
-            <div className="mt-6 flex justify-end">
+          <div>
+                <div></div>
+                  <div className="mt-6 flex justify-end">
                 <div>
                     <button onClick={handleLayout} className="px-5 py-3 text- bg-[#8255EF] rounded-md mr-4 text-bold text-white">Change layout</button>
                 </div>
@@ -84,22 +103,24 @@ const AvailableFoods = () => {
             </div>
             </div>
 
+
+
+
+
 {/* sort according to date start */}
-            <div>
+            <div className="mx-auto text-center">
 
-            <motion.ul
-    initial="hidden"
-    animate="visible"
-    variants={'item'}
-  >
-    <motion.li variants="item" />
+            <div className="dropdown dropdown-bottom">
+  <div tabIndex={0} role="button" className="btn m-1 bg-[#8255EF] w-32 text-white ">Expire Date  </div>
+  <ul tabIndex={0} className="dropdown-content z-[1] menu  shadow rounded-md   w-32 bg-[#8255EF] ">
+    <button onClick={handleSort}><li><a className="text-white">High Expiry </a></li></button>
+   <button onClick={handleLowExpire}> <li><a className="text-white">Low Expiry </a></li></button>
     
-    
-  </motion.ul>
-
-
-                <button onClick={handleSort}>Sort</button>
+  </ul>
+</div>
+     
             </div>
+          </div>
 {/* sort according to date end */}
 
 
@@ -107,7 +128,13 @@ const AvailableFoods = () => {
             {foods?.map(food=><>
 
 
-                <div className="card  bg-base-100 shadow-xl text-justify opacity-85">
+
+                <motion.div className="card  bg-base-100 shadow-xl text-justify opacity-85"
+                key={food._id}
+                initial={{opacity:0}}
+                animate={{opacity:1}}
+                transition={{duration:2.5}}
+                >
                 <figure><img className="max-h-[500px]" src={food.foodImage} alt="Shoes" /></figure>
                 <div className="card-body">
                  <h2 className="card-title">{food.foodName}</h2>
@@ -126,7 +153,7 @@ const AvailableFoods = () => {
                  
                 </div>
                 </div>
-                 </div>
+                 </motion.div>
             
 
 

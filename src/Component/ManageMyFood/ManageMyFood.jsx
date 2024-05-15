@@ -5,6 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import axios from "axios";
 import { Helmet } from "react-helmet";
+import { motion } from "framer-motion"
 
 
 const ManageMyFood = () => {
@@ -50,7 +51,13 @@ const ManageMyFood = () => {
     return (
         <div className=" ">
             <Helmet><title>CodeZen | Manage my Food</title></Helmet>
-                <div className=" mx-auto overflow-x-auto max-w-[1000px] py-6 lg:py-12 ">
+                <motion.div className=" mx-auto overflow-x-auto max-w-[1000px] py-6 lg:py-12 "
+                key={user.email}
+                initial={{opacity:0}}
+                animate={{opacity:1}}
+                transition={{duration:1.5}}
+                
+                >
   <table className="table">
     {/* head */}
     <thead>
@@ -83,7 +90,9 @@ const ManageMyFood = () => {
       
     </tbody>
   </table>
-</div>
+</motion.div>
+
+
         </div>
     );
 };

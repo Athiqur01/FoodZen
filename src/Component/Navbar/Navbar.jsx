@@ -18,7 +18,9 @@ const Navbar = () => {
                   </>
         
     const loggedUser=localStorage.getItem("loginUserinfo")
-    console.log(JSON.parse(loggedUser).photo)
+    if(loggedUser){
+        console.log(JSON.parse(loggedUser))
+    }
     
 
 
@@ -52,7 +54,7 @@ const Navbar = () => {
   </div>
   <div className="navbar-end">
 
-   {user? <><img className="w-12 w-12 rounded-full" src={user?.photoURL ||JSON.parse(loggedUser).photo} alt="" /><button onClick={logOut} className="pl-2">Log Out</button></>:<> <div className="flex gap-4">
+   {user? <><img className="w-12 w-12 rounded-full" src={user?.photoURL} alt="" /><button onClick={logOut} className="pl-2">Log Out</button></>:<> <div className="flex gap-4">
         
         <Link to="/login"><button>LogIn</button></Link>
         <Link to="/signUp"><button>Sign Up</button></Link>

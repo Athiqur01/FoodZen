@@ -8,7 +8,7 @@ import { useQuery } from "@tanstack/react-query";
 import { Helmet } from "react-helmet";
 
 let i=0
-console.log('primary',i)
+//console.log('primary',i)
 
 const LogIn = () => {
 
@@ -16,7 +16,7 @@ const LogIn = () => {
     // const [UserToDatabase,setUserToDatabase]=useState(null)
 
     const {logInUser,setUser,user,setLoggedUser,setLoading,loading,createGoogleUser}=useContext(AuthContext)
-   console.log('user',user?.email)
+   //console.log('user',user?.email)
    const navigate=useNavigate
 
    
@@ -27,7 +27,7 @@ const LogIn = () => {
  if(loginUserInfo){
     localStorage.setItem('loginUserinfo',JSON.stringify(loginUserInfo))
  }
-console.log('tut tut----',loginUserInfo)
+//console.log('tut tut----',loginUserInfo)
 
 
 
@@ -44,15 +44,15 @@ console.log('tut tut----',loginUserInfo)
          
         const email=common.email.value 
         const password=common.password.value
-        console.log(email,password)
+        //console.log(email,password)
 
         logInUser(email,password)
         .then(result=>{
-            console.log(result.user)
+            
             if(result.user){
                 setUser(result.user)
             //jwt -----------------
-            axios.post('http://localhost:5014/jwt',{email:result?.user?.email},{withCredentials:true})
+            axios.post('https://code-zen-all-food-server.vercel.app/jwt',{email:result?.user?.email},{withCredentials:true})
             .then(res=>{
                 console.log('dataaaaaaaaaaaaaaaaaa',res.data)
             })
@@ -79,7 +79,7 @@ console.log('tut tut----',loginUserInfo)
 
     // useEffect(()=>{
     //     setLoading(true)
-    //     axios.get('http://localhost:5014/user')
+    //     axios.get('https://code-zen-all-food-server.vercel.app/user')
     //     .then(data=>{
     //          const loggedUser=data.data.find(logged=>logged.email===user?.email)
             
@@ -108,19 +108,19 @@ console.log('tut tut----',loginUserInfo)
 
     createGoogleUser()
     .then(result=>{
-        console.log('google user',result.user)
+        
         setUser(result.user)
     })
   }
     
-      console.log('google user from use stste',user)  
+      //console.log('google user from use stste',user)  
 
       // user data fatch from data base
 // const {isError,error,data:userToMatch}=useQuery({
 //     queryKey:['userToMatch'],
 //     queryFn:async()=>{
         
-//         const res=await fetch(`http://localhost:5014/user/${user?.email}`,{credentials:'include'});
+//         const res=await fetch(`https://code-zen-all-food-server.vercel.app/user/${user?.email}`,{credentials:'include'});
 //         setLoading(true)
 //         //setUserToDatabase(userToMatch)
 //         return res.json();
@@ -135,19 +135,19 @@ const googleUserInfo={
      }
 
      
-axios.get(`http://localhost:5014/user/${user?.email}`)
+axios.get(`https://code-zen-all-food-server.vercel.app/user/${user?.email}`)
 .then(res=>{
-    console.log('jjjjjjjjjj',res.data)
+    //console.log('jjjjjjjjjj',res.data)
     if(res.data){
-        console.log('super')
+       // console.log('super')
     }
     if(!res.data && user){
         i++;
         if(i<2){
             console.log('primary2',i)
             setLoading(true)
-        console.log('okkkkkk')
-        axios.post('http://localhost:5014/user',googleUserInfo,{withCredentials:true})
+        //console.log('okkkkkk')
+        axios.post('https://code-zen-all-food-server.vercel.app/user',googleUserInfo,{withCredentials:true})
         .then(res=>{
             console.log(res.data)
         })

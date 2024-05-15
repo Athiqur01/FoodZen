@@ -24,10 +24,10 @@ const ViewDetail = () => {
 
         const foodInfo= {foodName,foodImage,foodQuantity,pickupLocation,expireDate,additionalNotes,donatorEmail,donatorImage,donatorName,foodStatus,currentDate,donationAmount,userEmail}
         
-        console.log('ok---------',donationAmount)
+       // console.log('ok---------',donationAmount)
 
         // Post operation
-      axios.post('http://localhost:5014/myFoodRequest',foodInfo)
+      axios.post('https://code-zen-all-food-server.vercel.app/myFoodRequest',foodInfo)
       .then(data=>{
           Swal.fire({
               position: "top-right",
@@ -36,7 +36,7 @@ const ViewDetail = () => {
               showConfirmButton: true,
               timer: 1500
             });
-          console.log(data.data)})
+          })
       .catch(error=>{
           console.error(error.message)
       })
@@ -45,11 +45,11 @@ const ViewDetail = () => {
       //delete operation
       
 
-        console.log(id)
+        //console.log(id)
 
-       axios.delete(`http://localhost:5014/food/${id}`)
+       axios.delete(`https://code-zen-all-food-server.vercel.app/food/${id}`)
       .then(res=>{
-        console.log('dataaa',res.data)
+        //console.log('dataaa',res.data)
       })
             
     

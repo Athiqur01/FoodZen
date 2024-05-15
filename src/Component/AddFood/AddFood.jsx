@@ -25,12 +25,12 @@ const AddFood = () => {
         const donatorEmail=common.donatorEmail.value 
         const foodStatus=common.foodStatus.value 
         
-        console.log(foodName,foodImage,foodQuantity,pickupLocation,expireDate,additionalNotes,donatorEmail,donatorImage,donatorName,foodStatus)
+        //console.log(foodName,foodImage,foodQuantity,pickupLocation,expireDate,additionalNotes,donatorEmail,donatorImage,donatorName,foodStatus)
 
         const food={foodName,foodImage,foodQuantity,pickupLocation,expireDate,additionalNotes,donatorEmail,donatorImage,donatorName,foodStatus}
 
         // Post operation
-        axios.post('http://localhost:5014/food',food,{withCredentials:true})
+        axios.post('https://code-zen-all-food-server.vercel.app/food',food,{withCredentials:true})
         .then(data=>{
             Swal.fire({
                 position: "top-center",
@@ -39,7 +39,7 @@ const AddFood = () => {
                 showConfirmButton: true,
                 timer: 7500
               });
-            console.log(data.data)})
+            })
         .catch(error=>{
             console.error(error.message)
         })
@@ -51,18 +51,18 @@ const AddFood = () => {
     const info=JSON.parse(loginUserInformation)
     const userName=info.name
     const userPhoto=info.photo
-    console.log('put put---',userName,userPhoto)
+    //console.log('put put---',userName,userPhoto)
 
     //fetch user------
     const {isPending, data:specficUser}=useQuery({
         queryKey:["specficUser"],
         queryFn:async()=>{
-            const res=await fetch(`http://localhost:5014/user/${user.email},`,{credentials:"include"});
+            const res=await fetch(`https://code-zen-all-food-server.vercel.app/user/${user.email},`,{credentials:"include"});
             return res.json();
         }
     })
 
-    console.log('specfic user',specficUser)
+    //console.log('specfic user',specficUser)
 
 
 

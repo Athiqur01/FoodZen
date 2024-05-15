@@ -15,14 +15,14 @@ const AvailableFoods = () => {
     
 
     const {foods,setFoods}=useContext(AuthContext)
-    console.log('foods',foods)
+    //console.log('foods',foods)
     const [expire,setExpire]=useState(null)
 
 
     // const {isPending,isError, error, data:foods}=useQueries({
     //     queryKey:['foods'],
     //     queryFn:async ()=>{
-    //         const res =await fetch('http://localhost:5014/food')
+    //         const res =await fetch('https://code-zen-all-food-server.vercel.app/food')
     //         return res.json();
     //     }
     // })
@@ -33,10 +33,10 @@ const AvailableFoods = () => {
     // console.log(foods)
 
     useEffect(()=>{
-        axios.get('http://localhost:5014/food',{withCredentials:true})
+        axios.get('https://code-zen-all-food-server.vercel.app/food',{withCredentials:true})
         .then(data=>{
             setFoods(data.data)
-            console.log(data.data)
+            
         })
     },[setFoods])
 
@@ -44,10 +44,10 @@ const AvailableFoods = () => {
     const handleSearch=()=>{
         
         const data=document.getElementById('search').value
-        console.log('ok',data.toLowerCase())
+        //console.log('ok',data.toLowerCase())
         const filteredFood= foods.filter(food=>food.foodName.toLowerCase().includes(data.toLowerCase())
             )
-        console.log('filtered food',filteredFood)
+        //console.log('filtered food',filteredFood)
         setFoods(filteredFood)
     }
 
@@ -55,7 +55,7 @@ const AvailableFoods = () => {
 
     const handleSort=()=>{
 
-        console.log('unordered',foods)
+       // console.log('unordered',foods)
         // const gettime=foods.map(food=>console.log(Date.parse(food.expireDate)))
         // console.log('gettime',gettime)
 
@@ -63,7 +63,7 @@ const AvailableFoods = () => {
         setFoods(orderedList)
 
         
-        console.log('ordered',orderedList)
+        //console.log('ordered',orderedList)
     }
 //setFoods(lowExpire)
     const handleLowExpire=()=>{

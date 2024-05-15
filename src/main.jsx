@@ -52,7 +52,7 @@ const router = createBrowserRouter([
       {
         path:"/viewDetail/:id",
         element:<ViewDetail></ViewDetail>,
-        loader:({params})=>fetch(`http://localhost:5014/food/${params.id}`)
+        loader:({params})=>fetch(`https://code-zen-all-food-server.vercel.app/food/${params.id}`)
       },
       {
         path:"myFoodRequest",
@@ -77,7 +77,7 @@ const router = createBrowserRouter([
       {
         path:"/logIn",
         element:<LogIn></LogIn>,
-        loader:()=>fetch('http://localhost:5014/user')
+        loader:()=>fetch('https://code-zen-all-food-server.vercel.app/user')
       },
       {
         path:"/signUp",

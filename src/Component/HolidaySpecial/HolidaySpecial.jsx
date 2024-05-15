@@ -11,12 +11,12 @@ const HolidaySpecial = () => {
     const {data:foods}=useQuery({
         queryKey:['holidaySpecial'],
         queryFn:async()=>{
-            const res=await fetch(`http://localhost:5014/foods/${user?.email}`,{credentials:'include'});
+            const res=await fetch(`https://code-zen-all-food-server.vercel.app/foods/${user?.email}`,{credentials:'include'});
             return res.json();
         }
     })
 
-    console.log('fffod',foods)
+    //console.log('fffod',foods)
 
     return (
         <div>

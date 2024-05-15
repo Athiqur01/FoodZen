@@ -12,7 +12,7 @@ const FeaturedFood = () => {
     const {isPending, data:allFoods}=useQuery({
         queryKey:["myFoodRequest"],
         queryFn:async()=>{
-            const res=await fetch('http://localhost:5014/food');
+            const res=await fetch('https://code-zen-all-food-server.vercel.app/food');
             return res.json();
         }
     })
@@ -23,7 +23,7 @@ const FeaturedFood = () => {
     
     const sortedFoods=allFoods.sort((a,b)=>b.foodQuantity-a.foodQuantity)
     const foods=sortedFoods.slice(0,6)
-    console.log('foooooooo',foods)
+    //console.log('foooooooo',foods)
     
 
 

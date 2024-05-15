@@ -17,7 +17,7 @@ const Update = () => {
    const {isLoading,data:food}=useQuery({
     queryKey:['update'],
     queryFn:async()=>{
-        const res=await fetch(`http://localhost:5014/food/${id}`,{credentials:'include'});
+        const res=await fetch(`https://code-zen-all-food-server.vercel.app/food/${id}`,{credentials:'include'});
         return res.json();
     }
 })
@@ -50,7 +50,7 @@ if(isLoading) return<p>loading--------</p>
 
 
        // Patch operation
-        axios.patch(`http://localhost:5014/food/${id}`,food,{withCredentials:true})
+        axios.patch(`https://code-zen-all-food-server.vercel.app/food/${id}`,food,{withCredentials:true})
         .then(data=>{
             Swal.fire({
                 position: "top-center",

@@ -10,12 +10,12 @@ const MyFoodRequest = () => {
     const {user}=useContext(AuthContext)
     
 
-    console.log('emaillllllll',user.email)
+    //('emaillllllll',user.email)
 
     const {isPending, data:foods}=useQuery({
         queryKey:["myFoodRequest"],
         queryFn:async()=>{
-            const res=await fetch(`http://localhost:5014/myFoodRequest/${user.email}`,{withCredentials:true});
+            const res=await fetch(`https://code-zen-all-food-server.vercel.app/myFoodRequest/${user.email}`,{withCredentials:true});
             return res.json();
         }
     })

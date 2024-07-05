@@ -1,8 +1,5 @@
-# React + Vite
-
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+FoodZen is a Community Food Sharing application. Key features are:
+Surplus food management in a community can be done effectively.
+It makes easer the job of food management team due to automation.
+communities food safety preserved.
+Techologies have been used: React, Javascript, Tailwind CSS, Mongodb, Firebase, Node Js, Express Js

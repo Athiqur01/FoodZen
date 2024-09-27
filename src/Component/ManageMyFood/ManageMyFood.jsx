@@ -18,7 +18,7 @@ const ManageMyFood = () => {
     const {data:foods}=useQuery({
         queryKey:['donatorFood'],
         queryFn:async()=>{
-            const res=await fetch(`https://code-zen-all-food-server.vercel.app/foods/${user?.email}`,{credentials:'include'});
+            const res=await fetch(`http://localhost:5014/foods/${user?.email}`,{credentials:'include'});
             return res.json();
         }
     })
@@ -31,7 +31,7 @@ const ManageMyFood = () => {
 
         console.log(id)
 
-       axios.delete(`https://code-zen-all-food-server.vercel.app/food/${id}`,{withCredentials:true})
+       axios.delete(`http://localhost:5014/food/${id}`,{withCredentials:true})
       .then(res=>{
         console.log('dataaa',res.data)
       })

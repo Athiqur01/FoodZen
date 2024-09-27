@@ -52,7 +52,7 @@ const LogIn = () => {
             if(result.user){
                 setUser(result.user)
             //jwt -----------------
-            axios.post('https://code-zen-all-food-server.vercel.app/jwt',{email:result?.user?.email},{withCredentials:true})
+            axios.post('http://localhost:5014/jwt',{email:result?.user?.email},{withCredentials:true})
             .then(res=>{
                 console.log('dataaaaaaaaaaaaaaaaaa',res.data)
             })
@@ -79,7 +79,7 @@ const LogIn = () => {
 
     // useEffect(()=>{
     //     setLoading(true)
-    //     axios.get('https://code-zen-all-food-server.vercel.app/user')
+    //     axios.get('http://localhost:5014/user')
     //     .then(data=>{
     //          const loggedUser=data.data.find(logged=>logged.email===user?.email)
             
@@ -120,7 +120,7 @@ const LogIn = () => {
 //     queryKey:['userToMatch'],
 //     queryFn:async()=>{
         
-//         const res=await fetch(`https://code-zen-all-food-server.vercel.app/user/${user?.email}`,{credentials:'include'});
+//         const res=await fetch(`http://localhost:5014/user/${user?.email}`,{credentials:'include'});
 //         setLoading(true)
 //         //setUserToDatabase(userToMatch)
 //         return res.json();
@@ -135,7 +135,7 @@ const googleUserInfo={
      }
 
      
-axios.get(`https://code-zen-all-food-server.vercel.app/user/${user?.email}`)
+axios.get(`http://localhost:5014/user/${user?.email}`)
 .then(res=>{
     //console.log('jjjjjjjjjj',res.data)
     if(res.data){
@@ -147,7 +147,7 @@ axios.get(`https://code-zen-all-food-server.vercel.app/user/${user?.email}`)
             console.log('primary2',i)
             setLoading(true)
         //console.log('okkkkkk')
-        axios.post('https://code-zen-all-food-server.vercel.app/user',googleUserInfo,{withCredentials:true})
+        axios.post('http://localhost:5014/user',googleUserInfo,{withCredentials:true})
         .then(res=>{
             console.log(res.data)
         })

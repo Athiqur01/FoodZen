@@ -22,7 +22,7 @@ const AvailableFoods = () => {
     // const {isPending,isError, error, data:foods}=useQueries({
     //     queryKey:['foods'],
     //     queryFn:async ()=>{
-    //         const res =await fetch('https://code-zen-all-food-server.vercel.app/food')
+    //         const res =await fetch('http://localhost:5014/food')
     //         return res.json();
     //     }
     // })
@@ -33,7 +33,7 @@ const AvailableFoods = () => {
     // console.log(foods)
 
     useEffect(()=>{
-        axios.get('https://code-zen-all-food-server.vercel.app/food',{withCredentials:true})
+        axios.get('http://localhost:5014/food',{withCredentials:true})
         .then(data=>{
             setFoods(data.data)
             

@@ -2,6 +2,7 @@ import { Link, NavLink } from "react-router-dom";
 import logo from "../../assets/codezen.png"
 import { useContext } from "react";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
+import './Navbar.css'
 
 
 const Navbar = () => {
@@ -26,7 +27,7 @@ const Navbar = () => {
 
     return (
         <div>
-            <div className="navbar bg-[#00006B] text-white font-bold p-4 rounded-t-md">
+            <div className="navbar bg-black text-white font-bold px-4 py-6 ">
   <div className="navbar-start">
     <div className="dropdown">
       <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -39,8 +40,8 @@ const Navbar = () => {
     <div>
         <Link to="/">
         <div className="space-y-1 font-bold">
-            <img className="w-20 rounded-md" src={logo} alt="" />
-            <h2 className="text-lg">FoodZen</h2>
+            
+            <h2 className="text-xl kulsan-font">FoodZen</h2>
         </div>
         </Link>
 

@@ -27,7 +27,7 @@ const ViewDetail = () => {
        // console.log('ok---------',donationAmount)
 
         // Post operation
-      axios.post('https://code-zen-all-food-server.vercel.app/myFoodRequest',foodInfo)
+      axios.post('http://localhost:5014/myFoodRequest',foodInfo)
       .then(data=>{
           Swal.fire({
               position: "top-right",
@@ -47,7 +47,7 @@ const ViewDetail = () => {
 
         //console.log(id)
 
-       axios.delete(`https://code-zen-all-food-server.vercel.app/food/${id}`)
+       axios.delete(`http://localhost:5014/food/${id}`)
       .then(res=>{
         //console.log('dataaa',res.data)
       })

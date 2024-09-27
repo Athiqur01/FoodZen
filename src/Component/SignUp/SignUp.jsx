@@ -42,7 +42,7 @@ const SignUp = () => {
          // Post operation
         const user={email,password,name,photo}
 
-         axios.post('https://code-zen-all-food-server.vercel.app/user',user)
+         axios.post('http://localhost:5014/user',user)
          .then(data=>{
              console.log(data.data)})
              

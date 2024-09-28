@@ -30,34 +30,34 @@ const FeaturedFood = () => {
     
 
     return (
-        <div>
-            
-            <h2 className="text-2xl md:text-4xl lg:text-6xl font-bold text-center text-[#B7A2D7] mt-6">Featured Foods</h2>
+        <div className="mx-2">
+           
+            <h2 className="text-2xl md:text-4xl lg:text-6xl font-bold text-center text-[#808000] mt-8 md:mt-14 lg:mt-20 mb-6 md:mb-8 lg:mb-12">Featured Foods</h2>
              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 my-16">
                
             {foods?.map((food)=><>
 
 
-                <div className="card w-full bg-base-100 shadow-xl text-justify opacity-85">
-                <figure><img className="max-h-[500px] w-full" src={food.foodImage} alt="Shoes" /></figure>
-                <div className="card-body">
-                 <h2 className="card-title">{food.foodName}</h2>
-                 <div className="flex gap-4">
-                    <img className="max-w-12 rounded-md" src={food.donatorImage} alt="" />
-                    <h4>{food.donatorName}</h4>
-                 </div>
-                 <h4><span className="font-bold">Quantity:</span> {food.foodQuantity}</h4>
+            <div className="flex gap-3 shadow-xl p-2 hover:scale-y-105 transition duration-500">
+                {/* Image--- */}
+                <div className="w-[50%] max-h-[250px] ">
+                    <img className="object-cover w-full h-full rounded-sm" src={food?.foodImage} alt="" />
+                </div>
+                {/* Food Info */}
+                <div className="w-[50%]">
+                <h2 className="card-title">{food.foodName}</h2>
+                <h4><span className="font-bold">Donner:</span> {food.donatorName}</h4>
+                <h4><span className="font-bold">Quantity:</span> {food.foodQuantity}</h4>
                  <h4><span className="font-bold">Pickup Location:</span> {food.pickupLocation}</h4>
                  <h4><span className="font-bold">Exp date:</span> {food.expireDate}</h4>
-                 <p><span className="font-bold">Note</span> {food.additionalNotes}</p>
-                 <div className="card-actions justify-end">
-
-                    {/* View Detail button that directed ViewDetail page */}
-                    <Link to={`/viewDetail/${food._id}`} ><button className="bg-[#B7A2D7] px-4 py-2 rounded-md">View detail</button></Link>
                  
+                 {/* View Detail button that directed ViewDetail page */}
+                 <Link to={`/viewDetail/${food._id}`} ><button className="bg-[#e2725b] px-2 py-1 rounded-md text-white font-semibold">View detail</button></Link>
                 </div>
-                </div>
-                 </div>
+            </div>
+
+
+                
             
 
 
@@ -68,7 +68,7 @@ const FeaturedFood = () => {
         {/* Show all button that derected to availableFood page */}
 
         <div className="flex justify-center">
-            <Link to="/availableFoods"><button className="py-2 px-4 rounded-md mb-20 bg-[#B7A2D7]">Show all</button></Link>
+            <Link to="/availableFoods"><button className="py-2 px-4 rounded-md mb-20 bg-[#e2725b]">Show all</button></Link>
             
         </div>
             

@@ -5,11 +5,11 @@ import logo from "../../assets/codezen.png"
 const Footer = () => {
     return (
         <div className="   ">
-        <footer className="footer text-white  px-10 mx-auto bg-[#00006B] text-base-content pt-20 flex flex-col md:flex-row ">
-  <nav className="text-white mx-auto text-black">
+        <footer className="footer text-white  px-10 mx-auto bg-black  pt-20 flex flex-col md:flex-row ">
+  <nav className="text-white mx-auto ">
     <div className="flex flex-col space-y-4">
-        <img className="max-w-20 rounded-md" src={logo} alt="" />
-        <h6 className="footer-title text-white">FoodZen </h6> 
+        
+        <h6 className="footer-title text-white kulsan-font">FoodZen </h6> 
     </div>
     
     <p className="text-left text-white">Explore the mystique of the <br /> FoodZen | All Foods at our point, where <br />every detail invites fascinations <br /> and interpretation.</p>
@@ -34,7 +34,7 @@ const Footer = () => {
   
   
 </footer>
-  <div className="bg-[#00006B] text-center ">
+  <div className="bg-black text-center ">
     <p className="text-white p-20">© 2018 Qode Interactive, All Rights Reserved</p>
   </div>
         </div>

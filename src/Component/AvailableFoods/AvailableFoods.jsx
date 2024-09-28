@@ -33,7 +33,7 @@ const AvailableFoods = () => {
     // console.log(foods)
 
     useEffect(()=>{
-        axios.get('http://localhost:5014/food',{withCredentials:true})
+        axios.get('http://localhost:5014/food')
         .then(data=>{
             setFoods(data.data)
             
@@ -127,9 +127,33 @@ const AvailableFoods = () => {
               <div id="layout" className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 my-16">
             {foods?.map(food=><>
 
+                <motion.div
+                 className="flex gap-3 shadow-xl p-2 hover:scale-y-105 transition duration-500"
+                 key={food._id}
+                initial={{opacity:0}}
+                animate={{opacity:1}}
+                transition={{duration:2.5}}
+                 >
+                {/* Image--- */}
+                <div className="w-[50%] max-h-[250px] ">
+                    <img className="object-cover w-full h-full rounded-sm" src={food?.foodImage} alt="" />
+                </div>
+                {/* Food Info */}
+                <div className="w-[50%]">
+                <h2 className="card-title">{food.foodName}</h2>
+                <h4><span className="font-bold">Donner:</span> {food.donatorName}</h4>
+                <h4><span className="font-bold">Quantity:</span> {food.foodQuantity}</h4>
+                 <h4><span className="font-bold">Pickup Location:</span> {food.pickupLocation}</h4>
+                 <h4><span className="font-bold">Exp date:</span> {food.expireDate}</h4>
+                 
+                 {/* View Detail button that directed ViewDetail page */}
+                 <Link to={`/viewDetail/${food._id}`} ><button className="bg-[#e2725b] px-2 py-1 rounded-md text-white font-semibold">View detail</button></Link>
+                </div>
+            </motion.div>
 
 
-                <motion.div className="card  bg-base-100 shadow-xl text-justify opacity-85"
+
+                {/* <motion.div className="card  bg-base-100 shadow-xl text-justify opacity-85"
                 key={food._id}
                 initial={{opacity:0}}
                 animate={{opacity:1}}
@@ -153,7 +177,7 @@ const AvailableFoods = () => {
                  
                 </div>
                 </div>
-                 </motion.div>
+                 </motion.div> */}
             
 
 

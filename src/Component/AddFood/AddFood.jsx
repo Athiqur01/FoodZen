@@ -70,10 +70,10 @@ const AddFood = () => {
 
 
     return (
-        <div className='flex flex-col justify-center items-center  rounded-lg bg-[#FEF6FF] p-20' >
+        <div className='flex flex-col justify-center items-center  rounded-lg bg-white py-10 md:py-14 lg:py-20' >
             <Helmet><title>CodeZen | Add Food </title></Helmet>
-            <h2 className="text-6xl font-bold text-[#B7A2D7]">Add Food Item</h2>
-            <div className='bg-[#fedcff] rounded-lg px-10 py-6 mt-12'>
+            <h2 className="text-2xl md:text-4xl lg:text-6xl font-bold text-[#808000]">Add Food Item</h2>
+            <div className='bg-[#fffafa] rounded-lg min-w-[350px] md:min-w-[800px] lg:min-w-[900px] px-2 md:px-10 lg:px-10 py-6 mt-12'>
                 
                 <form onSubmit={handleAddFood}  >
                        {/* inpt first row */}
@@ -82,14 +82,14 @@ const AddFood = () => {
                 <div className="label">
                  <span className="label-text text-base font-bold">Food Name</span>
                 </div>
-                <input type="text" name='foodName' placeholder="Food Name" className="input input-bordered w-full max-w-xs" />
+                <input type="text" name='foodName' placeholder="Food Name" className="input input-bordered  " />
                </label>
 
                <label className="form-control w-full max-w-xs">
                 <div className="label">
                  <span className="label-text text-base font-bold">Food Image</span>
                 </div>
-                <input type="text" name='foodImage' placeholder="Food Image URL" className="input input-bordered w-full max-w-xs" />
+                <input type="text" name='foodImage' placeholder="Food Image URL" className="input input-bordered  " />
                </label>
 
               </div>
@@ -100,7 +100,7 @@ const AddFood = () => {
                  <span className="label-text text-base font-bold">Food Quantity</span>
                 </div>
 
-                <input type="text" name='foodQuantity' placeholder="Food Quantity" className="input input-bordered w-full max-w-2xl" />
+                <input type="text" name='foodQuantity' placeholder="Food Quantity" className="input input-bordered" />
                 
                </label>
 
@@ -108,7 +108,7 @@ const AddFood = () => {
                 <div className="label">
                  <span className="label-text text-base font-bold">Pickup Location</span>
                 </div>
-                <input type="text" name='pickupLocation' placeholder="Pickup Location" className="input input-bordered w-full max-w-2xl" />
+                <input type="text" name='pickupLocation' placeholder="Pickup Location" className="input input-bordered " />
                </label>
 
               </div>
@@ -118,14 +118,14 @@ const AddFood = () => {
                 <div className="label">
                  <span className="label-text text-base font-bold">Expire Date</span>
                 </div>
-                <input type="date" name='expireDate' placeholder="Expire Date" className="input input-bordered w-full max-w-xs" />
+                <input type="date" name='expireDate' placeholder="Expire Date" className="input input-bordered " />
                </label>
 
                <label className="form-control w-full max-w-xs">
                 <div className="label">
                  <span className="label-text text-base font-bold">Additional Notes</span>
                 </div>
-                <input type="text" name='additionalNotes' placeholder="Additional Notes" className="input input-bordered w-full max-w-2xl" />
+                <input type="text" name='additionalNotes' placeholder="Additional Notes" className="input input-bordered " />
                </label>
 
               </div>
@@ -136,14 +136,14 @@ const AddFood = () => {
                 <div className="label">
                  <span className="label-text text-base font-bold">Donator Image</span>
                 </div>
-                <input type="text" value={userPhoto} name='donatorImage' placeholder="Donator Image" className="input input-bordered w-full max-w-2xl" />
+                <input type="text" value={userPhoto} name='donatorImage' placeholder="Donator Image" className="input input-bordered " />
                </label>
 
                <label className="form-control w-full max-w-xs">
                 <div className="label">
                  <span className="label-text text-base font-bold">Donator Name </span>
                 </div>
-                <input type="text" value={specficUser?.name} name='donatorName'  placeholder="Donator Name " className="input input-bordered w-full max-w-2xl"disabled/>
+                <input type="text" value={specficUser?.name} name='donatorName'  placeholder="Donator Name " className="input input-bordered "disabled/>
                </label>
 
               </div>
@@ -154,14 +154,14 @@ const AddFood = () => {
                 <div className="label">
                  <span className="label-text text-base font-bold">Donator Email </span>
                 </div>
-                <input type="text" name='donatorEmail' placeholder="Donator Email " value={user?.email} className="input input-bordered w-full max-w-xs" disabled/>
+                <input type="text" name='donatorEmail' placeholder="Donator Email " value={user?.email} className="input input-bordered " disabled/>
                </label>
 
                <label className="form-control w-full max-w-xs">
                 <div className="label">
                  <span className="label-text text-base font-bold">Food Status</span>
                 </div>
-                <input type="text" name='foodStatus' value="Available" placeholder="Food Status" className="input input-bordered w-full max-w-xs" />
+                <input type="text" name='foodStatus' value="Available" placeholder="Food Status" className="input input-bordered " />
                </label>
 
               </div>
@@ -169,7 +169,7 @@ const AddFood = () => {
               {/* inpt 6th  row */}
              <div className=' p-4 flex space-x-8 justify-center'>
                <label className="form-control w-full max-w-xs">
-                <input type="submit"  value="Add" className="btn btn-block bg-[#B7A2D7]" />
+                <input type="submit"  value="Add" className="btn btn-block bg-[#e2725b]" />
                </label>
               </div>
 

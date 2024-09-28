@@ -95,7 +95,7 @@ const AvailableFoods = () => {
                 <div></div>
                   <div className="mt-6 flex justify-end">
                 <div>
-                    <button onClick={handleLayout} className="px-5 py-3 text- bg-[#8255EF] rounded-md mr-4 text-bold text-white">Change layout</button>
+                    <button onClick={handleLayout} className="px-5 py-3 text- bg-[#8255EF] rounded-md mr-4 text-bold text-white">Change Layou</button>
                 </div>
             <div className="join">
             <input id="search" type="text" name="searched" className="input input-bordered join-item" placeholder="Search Food"/>
@@ -153,31 +153,7 @@ const AvailableFoods = () => {
 
 
 
-                {/* <motion.div className="card  bg-base-100 shadow-xl text-justify opacity-85"
-                key={food._id}
-                initial={{opacity:0}}
-                animate={{opacity:1}}
-                transition={{duration:2.5}}
-                >
-                <figure><img className="max-h-[500px]" src={food.foodImage} alt="Shoes" /></figure>
-                <div className="card-body">
-                 <h2 className="card-title">{food.foodName}</h2>
-                 <div className="flex gap-4">
-                    <img className="max-w-12 rounded-md" src={food.donatorImage} alt="" />
-                    <h4>{food.donatorName}</h4>
-                 </div>
-                 <h4><span className="font-bold">Quantity:</span> {food.foodQuantity}</h4>
-                 <h4><span className="font-bold">Pickup Location:</span> {food.pickupLocation}</h4>
-                 <h4><span className="font-bold">Exp date:</span> {food.expireDate}</h4>
-                 <p><span className="font-bold">Note</span> {food.additionalNotes}</p>
-                 <div className="card-actions justify-end">
-                    <Link to={`/viewDetail/${food._id}`}>
-                    <button className="bg-[#B7A2D7] px-4 py-2 rounded-md">View detail</button>
-                    </Link>
-                 
-                </div>
-                </div>
-                 </motion.div> */}
+               
             
 
 
